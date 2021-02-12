@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 8px -16px;
+}
+
+
+/* Add padding BETWEEN each column (if you want) */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/*AQUI EMPIEZA DONDE OCULTA*/
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide columns by default */
+}
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.BOTON {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Add a grey background color on mouse-over */
+.BOTON:hover {
+  background-color: #ddd;
+}
+
+/* Add a dark background color to the active button */
+.BOTON.ACTIVO {
+  background-color: #666;
+   color: white;
+}
+
+</style>
+
+</head>
+
+
+
+<h2>JOBS</h2>
+<div id="myBtnContainer">
+  <button class="BOTON ACTIVO" onclick="filterSelection('all')"> Show all</button>	
+	<BUTTON CLASS="BOTON" ONCLICK="filterSelection('MUSIC')"> MUSIC </BUTTON>
+	<BUTTON CLASS="BOTON" ONCLICK="filterSelection('DESIGN')"> DESIGN </BUTTON>
+	<BUTTON CLASS="BOTON" ONCLICK="filterSelection('CODE')"> CODE </BUTTON>
+	<BUTTON CLASS="BOTON" ONCLICK="filterSelection('GAMES')"> GAMES </BUTTON>
+	<!--UTTON CLASS="BOTON_ACTIVO"> SHOW ALL </BUTTON-->
+</DIV>
+
+<!-- AQUI EMPIEZA LO BUENO -->
+<DIV CLASS="row">
+
+  <DIV CLASS="column MUSIC">
+    <DIV CLASS="content">
+        <img src="ad_art1_tw.jpg" alt="imagen1" style="width:100%">
+          <h4>CANCION 1</h4>
+          <P>AQUI VA EL TEXTO</P>          
+    </DIV>
+  </DIV>
+  <DIV CLASS="column MUSIC">
+    <DIV CLASS="content">
+        <img src="ad_art1_tw.jpg" alt="imagen2" style="width:100%">
+          <h4>CANCION 2</h4>
+          <P>AQUI VA EL TEXTO</P>          
+    </DIV>
+  </DIV> 
+  <DIV CLASS="column MUSIC">
+    <DIV CLASS="content">
+        <img src="ad_art1_tw.jpg" alt="imagen3" style="width:100%">
+          <h4>CANCION 3</h4>
+          <P>AQUI VA EL TEXTO</P>          
+    </DIV>
+  </DIV> 
+
+
+  <DIV CLASS="column DESIGN">
+    <DIV CLASS="content">
+        <img src="dibujo_omar_jhxc.PNG" alt="imagen4" style="width:100%">
+          <h4>GRAFICO 1</h4>
+          <P>AQUI VA EL TEXTO</P>          
+    </DIV>
+  </DIV>
+  <DIV CLASS="column DESIGN">
+    <DIV CLASS="content">
+        <img src="dibujo_omar_jhxc.PNG" alt="imagen5" style="width:100%">
+          <h4>GRAFICO 2</h4>
+          <P>AQUI VA EL TEXTO</P>          
+    </DIV>
+  </DIV>  
+  <DIV CLASS="column DESIGN">
+    <DIV CLASS="content">
+        <img src="dibujo_omar_jhxc.PNG" alt="imagen6" style="width:100%">
+          <h4>GRAFICO 3</h4>
+          <P>AQUI VA EL TEXTO</P>          
+    </DIV>
+  </DIV>    
+
+  <DIV CLASS="column CODE">
+    <DIV CLASS="content">
+        <img src="spider_man2_shirt.jpg" alt="imagen7" style="width:100%">
+          <h4>PROGRAMA 1</h4>
+          <P>AQUI VA EL TEXTO</P>          
+    </DIV>
+  </DIV>  
+  <DIV CLASS="column CODE">
+    <DIV CLASS="content">
+        <img src="spider_man2_shirt.jpg" alt="imagen8" style="width:100%">
+          <h4>PROGRAMA 2</h4>
+          <P>AQUI VA EL TEXTO</P>          
+    </DIV>
+  </DIV>  
+  <DIV CLASS="column CODE">
+    <DIV CLASS="content">
+        <img src="spider_man2_shirt.jpg" alt="imagen9" style="width:100%">
+          <h4>PROGRAMA 3</h4>
+          <P>AQUI VA EL TEXTO</P>          
+    </DIV>
+  </DIV>  
+
+  <!--DIV CLASS="column GAMES">
+    <DIV CLASS="content">
+        <img src="ad_art1_tw.jpg" alt="imagen1" style="width:100%">
+          <h4>GAME 1</h4>
+          <P>AQUI VA EL TEXTO</P>          
+    </DIV>
+  </DIV-->  
+
+<!-- FIN GRID -->
+</DIV>
+
+
+<!LA PAGINA DE TUTORIAL>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("BOTON");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("ACTIVO");
+    current[0].className = current[0].className.replace(" ACTIVO", "");
+    this.className += " ACTIVO";
+  });
+}
+</script>
+
+
+
+<!LA PAGINA DE TUTORIAL>
+
+
+</body>
+</html>
